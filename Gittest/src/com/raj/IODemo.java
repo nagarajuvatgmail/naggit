@@ -2,12 +2,15 @@ package com.raj;
 
 import java.io.*;
 
+/**
+ * 
+ * @author NagaRaju
+ *
+ */
 class IODemo
 {
 	public static void main(String[] args) 
 	{
-	  //use ctrl z for termination.in case of characters ctrl-z returns -1;
-	  //in case of strings is return null
  	  int i=0;short s;
       //first method
       byte barr[]=new byte[5];
