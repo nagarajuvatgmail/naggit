@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Employees</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="EmployeeCtrl.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+</head>
+<body style="margin:20px" ng-controller="enpmloyeeCtrl">
+
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Add courses</h3>
+		  </div>
+		  <div class="panel-body">
+					<form class="form-horizontal">
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Course name</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="courseName" ng-model="course.name" placeholder="Course name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="Course duration" class="col-sm-2 control-label">Course duration</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="courseName" ng-model="course.duration" placeholder="Course duration">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="Course duration" class="col-sm-2 control-label">Course fee</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="courseName" ng-model="course.fee" placeholder="Course fee">
+				    </div>
+				  </div>
+				  <input id="courseName" ng-model="course.id" type="text" hidden="true"><br/>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+						<button class="btn btn-info" ng-click="ajouter()">Save 
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>
+
+						<button class="btn btn-info" ng-click="saveEdit()" ng-show="editBtn">Save Edit
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>		   
+				 </div>
+				  </div>
+				</form>		  
+		</div>
+		</div>
+	
+
+	<div>
+		<table class="table table-bordered">
+			<thead>
+				<th> Course name</th>
+				<th> Course duration</th>
+				<th> Action</th>
+			</thead>
+
+			<tbody ng-repeat="course in courses"> 
+				<tr>
+					<td>{{course.name}}</td>
+					<td>{{course.duration}}</td>
+					<td>
+						<a class="btn btn-danger" ng-click="removeCourse(course)" >Delete</a>
+						<a class="btn btn-info" ng-click="editCourse(course)" >Edit</a>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</body>
+</html>
+
